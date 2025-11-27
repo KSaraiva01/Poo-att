@@ -24,5 +24,7 @@ public class motorista {
 		return Quantidade_pontos;
 	}
 	
-	
+	public void Quantidade_pontos(int pontos) {
+        this.Quantidade_pontos += pontos;
+    }
 }

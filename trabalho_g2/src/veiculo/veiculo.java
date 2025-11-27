@@ -20,9 +20,9 @@ public class veiculo {
 	public String getmodelo() {
 		return modelo;
 	}
-	
+
 	public motorista getMotoristaresponsavel() {
 		return Motorista;
 	}
-	
+
 }
