@@ -3,26 +3,34 @@ package veiculo;
 import motorista.motorista;
 
 public class veiculo {
-	private String Placa;
-	private String modelo;
-	private motorista Motorista;
+    private String placa;
+    private String modelo;
+    private motorista motoristaResponsavel;
 
-	public veiculo(String Placa, String modelo, motorista Motorista) {
-		this.Placa = Placa;
-		this.modelo = modelo;
-		this.Motorista = Motorista;
-	}
+    public veiculo(String placa, String modelo, motorista motoristaResponsavel) {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.motoristaResponsavel = motoristaResponsavel;
+    }
 
-	public String getPlaca() {
-		return Placa;
-	}
+    public String getPlaca() {
+        return placa;
+    }
 
-	public String getmodelo() {
-		return modelo;
-	}
+    public String getModelo() {
+        return modelo;
+    }
 
-	public motorista getMotoristaresponsavel() {
-		return Motorista;
-	}
+    public motorista getMotoristaResponsavel() {
+        return motoristaResponsavel;
+    }
 
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", motoristaResponsavel=" + motoristaResponsavel.getNome() +
+                '}';
+    }
 }

@@ -1,21 +1,36 @@
 package infracao;
 
-public enum infracao {
-	leve(3, 88.30), media(4, 130.16), grave(5, 195.23), gravissima(7, 293.47);
+import veiculo.veiculo;
+import java.time.LocalDateTime;
 
-	private int pontos;
-	private double valorMulta;
+public class infracao {
+	private TipoInfracao tipo;
+	private veiculo veiculo;
+	private LocalDateTime dataHora;
 
-	infracao(int pontos, double valorMulta) {
-		this.pontos = pontos;
-		this.valorMulta = valorMulta;
+	public infracao(TipoInfracao tipo, veiculo veiculo) {
+		this.tipo = tipo;
+		this.veiculo = veiculo;
+		this.dataHora = LocalDateTime.now();
+	}
+
+	public TipoInfracao getTipo() {
+		return tipo;
+	}
+
+	public veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
 	}
 
 	public int getPontos() {
-		return pontos;
+		return tipo.getPontos();
 	}
 
 	public double getValorMulta() {
-		return valorMulta;
+		return tipo.getValorMulta();
 	}
 }

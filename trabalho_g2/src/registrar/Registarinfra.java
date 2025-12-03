@@ -1,33 +1,29 @@
 package registrar;
 
-import infracao.infracao;
-import infracao.Calcinfra;
 import motorista.motorista;
-import veiculo.veiculo;
 import avaliar.avaliarcnh;
-import avaliar.avaliarcnhpadrao;
+import calculadora.Calcinfra;
+import infracao.TipoInfracao;
+import infracao.infracao;
+import veiculo.veiculo;
 
 public class Registarinfra {
-	private Calcinfra calcinfra;
-	private avaliarcnh avaliarcnh;
-	
-	public Registarinfra(Calcinfra calcinfra, avaliarcnh avaliarcnh) {
-		this.calcinfra = calcinfra;
-		this.avaliarcnh = avaliarcnh;
-		
-	}
+    private Calcinfra calculadora;
+    private avaliarcnh avaliador;
 
-	public infracao Registarinfra(veiculo veiculo, infracao tipo){
-		
-	}
+    public Registarinfra(Calcinfra calculadora,avaliarcnh avaliador) {
+        this.calculadora = calculadora;
+        this.avaliador = avaliador;
+    }
 
-	public situacaocnh obterSituacao(motorista motorista) {
-		return avaliarcnh.avaliar(motorista);
-	}
-	
-	public double calcvalormulta(infracao tipo){
-		return calcinfra.calcvalor(tipo);
-	}	
+    public infracao registrarInfracao(veiculo veiculo, TipoInfracao tipo) {
+        infracao infracao = new infracao(tipo, veiculo);
+        int pontos = calculadora.calcularPontos(infracao);
+        veiculo.getMotoristaResponsavel().adicionarPontos(pontos);
+        return infracao;
+    }
+
+    public String obterSituacao(motorista motorista) {
+        return avaliador.avaliar(motorista);
+    }
 }
-
-

@@ -3,28 +3,37 @@ package motorista;
 public class motorista {
 	private String nome;
 	private String numeroCnh;
-	private int Quantidade_pontos;
+	private int pontosAcumulados;
 
 	public motorista(String nome, String numeroCnh) {
 		this.nome = nome;
 		this.numeroCnh = numeroCnh;
-		this.Quantidade_pontos = 0;
+		this.pontosAcumulados = 0;
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-
 	public String getNumeroCnh() {
 		return numeroCnh;
 	}
 
 	public int getPontosAcumulados() {
-		return Quantidade_pontos;
+		return pontosAcumulados;
 	}
-	
-	public void Quantidade_pontos(int pontos) {
-        this.Quantidade_pontos += pontos;
-    }
+
+	public void adicionarPontos(int pontos) {
+		this.pontosAcumulados += pontos;
+	}
+
+	public void resetarPontos() {
+		this.pontosAcumulados = 0;
+	}
+
+	@Override
+	public String toString() {
+		return "Motorista{" + "nome='" + nome + '\'' + ", numeroCnh='" + numeroCnh + '\'' + ", pontosAcumulados="
+				+ pontosAcumulados + '}';
+	}
 }
